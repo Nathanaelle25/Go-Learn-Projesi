@@ -1,0 +1,122 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Uzaktan Eğitim Platformu REST API",
+        "title": "GoLearn API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:8090",
+    "basePath": "/api",
+    "paths": {
+        "/courses": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "courses"
+                ],
+                "summary": "Kursları listele",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "courses"
+                ],
+                "summary": "Yeni kurs oluştur",
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/courses/{id}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "courses"
+                ],
+                "summary": "Kurs detaylarını getir",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Kurs ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "courses"
+                ],
+                "summary": "Kurs güncelle",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Kurs ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "tags": [
+                    "courses"
+                ],
+                "summary": "Kurs sil",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Kurs ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    },
+    "securityDefinitions": {
+        "BearerAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

@@ -1,0 +1,82 @@
+basePath: /api
+host: localhost:8090
+info:
+  contact: {}
+  description: Uzaktan Eğitim Platformu REST API
+  title: GoLearn API
+  version: "1.0"
+paths:
+  /courses:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Kursları listele
+      tags:
+      - courses
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Yeni kurs oluştur
+      tags:
+      - courses
+  /courses/{id}:
+    delete:
+      parameters:
+      - description: Kurs ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses: {}
+      summary: Kurs sil
+      tags:
+      - courses
+    get:
+      parameters:
+      - description: Kurs ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Kurs detaylarını getir
+      tags:
+      - courses
+    put:
+      parameters:
+      - description: Kurs ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses: {}
+      summary: Kurs güncelle
+      tags:
+      - courses
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
